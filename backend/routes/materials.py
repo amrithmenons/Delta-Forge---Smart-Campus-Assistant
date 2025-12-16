@@ -60,7 +60,7 @@ except ImportError:
 # Gemini for subject detection
 try:
     import google.generativeai as genai
-    GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', 'AIzaSyDO4IPd2s0JMxH1bdj0t0AUS5kOEKLuIRQ')
+    GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
     if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
         genai.configure(api_key=GEMINI_API_KEY)
         subject_model = genai.GenerativeModel('gemini-2.5-flash')
@@ -593,4 +593,5 @@ def reprocess_material(material_id):
         
     except Exception as e:
         current_app.logger.exception("❌ Re-processing failed")
+
         return jsonify({"error": str(e)}), 500
