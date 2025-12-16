@@ -7,7 +7,7 @@ import os
 try:
     import google.generativeai as genai
     GEMINI_AVAILABLE = True
-    GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', 'AIzaSyDO4IPd2s0JMxH1bdj0t0AUS5kOEKLuIRQ')
+    GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
     
     if GEMINI_API_KEY and len(GEMINI_API_KEY) > 10:
         try:
@@ -467,4 +467,5 @@ def gemini_status():
     }
     
     response = jsonify(status)
+
     return add_cors_headers(response)
