@@ -9,7 +9,7 @@ load_dotenv()
 HOST = os.getenv("MYSQL_HOST", "127.0.0.1")
 PORT = int(os.getenv("MYSQL_PORT", "3306"))
 USER = os.getenv("MYSQL_USER", "root")
-PASSWORD = os.getenv("MYSQL_PASSWORD", "amrsubshe19")
+PASSWORD = os.getenv("MYSQL_PASSWORD", "")
 DBNAME = os.getenv("MYSQL_DB", "smart_campus")
 
 print(f"Connecting to MySQL at {HOST}:{PORT} as {USER} ...")
@@ -24,3 +24,4 @@ try:
         print(f"Database `{DBNAME}` created or already exists.")
 finally:
     conn.close()
+
